@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Publication DAF — connexion</title>
+  </head>
+  <body style="font-family: system-ui, sans-serif; max-width: 40rem; margin: 3rem auto; padding: 0 1rem">
+    <p id="message">Connexion en cours…</p>
+    <script>
+      // Retour de la connexion Meta : renvoyé tel quel à l'outil qui attend sur l'ordinateur.
+      // Rien n'est gardé ni envoyé ailleurs.
+      var query = window.location.search
+      if (query.indexOf('code=') !== -1 || query.indexOf('error') !== -1) {
+        window.location.replace('http://localhost:53683/meta' + query)
+      } else {
+        document.getElementById('message').textContent =
+          'Cette page sert uniquement au retour de la connexion.'
+      }
+    </script>
+  </body>
+</html>
